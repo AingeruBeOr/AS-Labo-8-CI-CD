@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+# Metadatos del deployment
+metadata:
+  name: db-deployment
+
+spec: 
+  replicas: 1
+  # Seleccionamos el POD sobre el que queremos que interactue el deployment
+  selector:
+    matchLabels:
+      componente: db
+
+  # Definición del POD
+  template: 
+    # Metadatos del POD
+    metadata:
+      labels:
+        componente: db
+    # Specificaciones del POD
+    spec:
+      containers: 
+        - name: db-container
+          image: redis
+          ports:
+            - containerPort: 6379 

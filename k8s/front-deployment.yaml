@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+# Metadatos del deployment
+metadata:
+  name: front-end-deployment
+
+spec: 
+  replicas: 1
+  # Seleccionamos el POD sobre el que queremos que interactue el deployment
+  selector:
+    matchLabels:
+      componente: front
+
+  # Definición del POD
+  template: 
+    # Metadatos del POD
+    metadata: 
+      labels: 
+        componente: front
+    # Specificaciones del POD
+    spec:
+      containers: 
+        - name: front-end-container
+          image: aingerubeor/as-laboratorio-8-web
+          ports:
+            - containerPort: 5000 

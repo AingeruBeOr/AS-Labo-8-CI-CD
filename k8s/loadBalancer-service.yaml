@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mi-load-balancer
+  labels:
+    component: web
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000 # Puerto del POD donde está el front
+  selector:
+    componente: front
