@@ -1,0 +1,21 @@
+name: Labo Workflow
+# Cuando suceda qué
+on:
+  push:
+    branches:
+      - main
+
+# Lo que queremos que suceda
+jobs:
+  tareas:
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+    
+    steps:
+     - name: Bajar código 
+       uses: actions/checkout@v4
+
+     - name: Autenticarse en DockerHub
+       run: docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
