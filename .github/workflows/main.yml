@@ -42,13 +42,13 @@ jobs:
          location: europe-west4
 
      - name: Desplegar deployment para la base de datos
-       run: kubectl apply -f db-deployment.yaml
+       run: kubectl apply -f ./k8s/db-deployment.yaml
 
      - name: Desplegar deployment para el front
-       run: kubectl apply -f front-deployment.yaml
+       run: kubectl apply -f ./k8s/front-deployment.yaml
 
      - name: Desplegar ClusterIP para la base de datos
-       run: kubectl apply -f db-clusterIP-service.yaml
+       run: kubectl apply -f ./k8s/db-clusterIP-service.yaml
 
      - name: Desplegar LoadBalancer para el front
-       run: kubectl apply -f loadBalancer-service.yaml
+       run: kubectl apply -f ./k8s/loadBalancer-service.yaml
