@@ -1,5 +1,5 @@
 name: Labo Workflow
-# Cuando suceda qué
+# Cuando suceda qué lanazar el workflow
 on:
   push:
     branches:
