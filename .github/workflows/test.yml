@@ -1,0 +1,23 @@
+name: App test
+
+# Se ejecuta en un evento PUSH de cualquier rama que no sea la 'main'
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  testear:
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+
+    steps:
+      - name: Bajar código
+        uses: actions/checkout@v4
+
+      - name: Pruebas de código
+        uses: advanced-security/python-lint-code-scanning-action@v1
+        with:
+          linter: pylint
