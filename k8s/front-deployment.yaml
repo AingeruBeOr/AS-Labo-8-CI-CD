@@ -22,6 +22,6 @@ spec:
     spec:
       containers: 
         - name: front-end-container
-          image: aingerubeor/as-laboratorio-8-web
+          image: aingerubeor/as-laboratorio-8-web:latest
           ports:
             - containerPort: 5000 
