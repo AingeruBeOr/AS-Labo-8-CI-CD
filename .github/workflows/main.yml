@@ -34,3 +34,9 @@ jobs:
 
      - name: Autenticarse en GKE
        uses: simenandre/setup-gke-gcloud-auth-plugin@v1
+
+     - name: Configurar kubectl
+       uses: google-github-actions/get-gke-credentials@v1
+       with:
+         cluster_name: autopilot-cluster-1
+         location: europe-west4
