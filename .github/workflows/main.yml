@@ -31,4 +31,6 @@ jobs:
        with:
          project_id: ${{ secrets.GCP_PROJECT_ID }}
          credentials_json: ${{ secrets.GCP_ACCESS_TOKEN }}
-         
+
+     - name: Autenticarse en GKE
+       uses: simenandre/setup-gke-gcloud-auth-plugin@v1
