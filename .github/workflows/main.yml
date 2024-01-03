@@ -52,3 +52,9 @@ jobs:
 
      - name: Desplegar LoadBalancer para el front
        run: kubectl apply -f ./k8s/loadBalancer-service.yaml
+
+     - name: Resetear deployment de la base de datos para coger la última versión de la imagen y que no piense que le imagen es la misma y no haga nada
+       run: kubectl rollout restart deployment ./k8s/db-deployment.yaml
+
+     - name: Resetear deployment del front-end para coger la última versión de la imagen y que no piense que le imagen es la misma y no haga nada
+       run: kubectl rollout restart deployment ./k8s/front-deployment.yaml
